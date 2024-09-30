@@ -57,13 +57,13 @@ app.get('/', (_, res: Response) => {
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 
-const port = process.env.PORT || 5000
+const PORT = Number(process.env.PORT) || 5000
 
 const start = async () => {
   try {
     await connectDB(MONGO_URI)
-    app.listen(port, () =>
-      console.log(`Server is listening on port http://localhost:${port}`)
+    app.listen(PORT, '0.0.0.0', () =>
+      console.log(`Server is listening on port ${PORT}`)
     )
   } catch (error) {
     console.log(error)

@@ -3,13 +3,15 @@ import { getUserFromLocalStorage } from './localStorage';
 import { clearStore } from '../features/user/userSlice';
 
 const apiUrl =
-    process.env.REACT_APP_API_URL ||
-    'https://container-service-1.82upn46fa2lac.eu-central-1.cs.amazonlightsail.com/api/v1/';
+    process.env.NODE_ENV === 'production'
+        ? 'https://container-service-1.82upn46fa2lac.eu-central-1.cs.amazonlightsail.com/api/v1/'
+        : 'http://localhost:5000/api/v1/';
 
 const customFetch = axios.create({
     baseURL: apiUrl
     // baseURL: 'http://localhost:5000/api/v1/'
 });
+
 customFetch.interceptors.request.use(config => {
     const user = getUserFromLocalStorage();
     if (user) {
