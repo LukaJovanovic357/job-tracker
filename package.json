@@ -1,0 +1,17 @@
+{
+    "name": "job-search-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "workspaces": [
+        "./server",
+        "./client"
+    ],
+    "dependencies": {
+        "recharts": "^2.12.7"
+    }
+}

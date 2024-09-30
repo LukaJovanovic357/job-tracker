@@ -1,0 +1,8 @@
+{
+    "containerName": "client",
+    "containerPort": 80,
+    "healthCheck": {
+        "path": "/health.json",
+        "intervalSeconds": 15
+    }
+}

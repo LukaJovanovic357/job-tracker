@@ -1,0 +1,23 @@
+{
+    "server": {
+        "image": "jovanovicluka/job-search-server:latest",
+        "command": ["npm", "run", "start"],
+        "ports": {
+            "5000": "HTTP"
+        },
+        "environment": {
+            "MONGO_URI": "mongodb+srv://Per-ulv:0CqEsI4xXHoWNcMM@job-app.i3by3uc.mongodb.net/Job-Search?retryWrites=true&w=majority&appName=Job-App",
+            "SECRET_KEY": "vQeVBdddo1Ybiin",
+            "PORT": "5000"
+        }
+    },
+    "client": {
+        "image": "jovanovicluka/job-search-client:latest",
+        "ports": {
+            "80": "HTTP"
+        },
+        "environment": {
+            "API_PROXY_PASS": "http://server:5000"
+        }
+    }
+}
